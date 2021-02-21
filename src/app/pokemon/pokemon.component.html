@@ -1,0 +1,39 @@
+<div class='main btn btn-lg btn-outline-danger'>
+    <div class='container'>
+        <div>
+            <img [src]="pokemon.sprites.front_default">
+        </div>
+        <div>
+            <p><span>Name:</span> {{ pokemon.name }}</p>
+            <p><span>Base experience:</span> {{ pokemon.base_experience }} m</p>
+            <p><span>Height:</span> {{ pokemon.height }} m</p>
+            <p><span>Id:</span> {{ pokemon.id }}</p>
+            <p><span>Weight:</span> {{ pokemon.weight }} m</p>
+            <div>{{ pokemon.abilities[0].ability['name'] }}</div>
+        </div>
+    </div>
+    <button class="btn btn-light btn-sm" (click)='more=!more'>More...</button>
+</div>
+<div *ngIf="more">
+    <div class="alert">
+        <div class="btn btn-lg btn-outline-danger box">
+            <div class='boxContainer' (click)='more=!more'>
+                <div>
+                    <img [src]="pokemon.sprites.front_default">
+                    <img [src]="pokemon.sprites.back_default">
+                    <img [src]="pokemon.sprites.back_shiny">
+                    <img [src]="pokemon.sprites.front_shiny">
+                </div>
+                <div>
+                    <p><span>Name:</span> {{ pokemon.name }}</p>
+                    <p><span>Base experience:</span> {{ pokemon.base_experience }} m</p>
+                    <p><span>Height:</span> {{ pokemon.height }} m</p>
+                    <p><span>Id:</span> {{ pokemon.id }}</p>
+                    <p><span>Weight:</span> {{ pokemon.weight }} m</p>
+                    <p><span>Abilities:</span> <span *ngFor='let ability of pokemon.abilities'> {{ ability.ability['name'] }} </span></p>
+                    <p><span>Held items:</span> <span *ngFor='let item of pokemon.held_items'> {{ item.item['name'] }} </span></p>
+                </div>
+            </div>
+        </div>  
+      </div>
+</div>

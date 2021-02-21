@@ -1,0 +1,8 @@
+ <div class='container'> 
+    <ul>
+    <li *ngFor="let pokemon of allOfThem">
+        <app-pokemon [name]="pokemon" ></app-pokemon>
+    </li>
+    </ul>
+    <button type="button" class="btn btn-outline-danger btn-lg btn-block" (click)='more()'>More pokemons</button>
+</div>  
